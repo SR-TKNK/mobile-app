@@ -1,0 +1,87 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Devices",
+      "image": "https://image.flaticon.com/icons/png/512/234/234107.png"
+    },
+    {
+      "id": 2,
+      "name": "Fashion",
+      "image": "https://image.flaticon.com/icons/png/512/195/195469.png"
+    },
+    {
+      "id": 3,
+      "name": "Make-up",
+      "image": "https://lh3.googleusercontent.com/MwDSfjPZi7R6hCkXsm1sv8OrJnlmqjEsar0MI6RvoTKVA_AvEm3cmS-i6MIuzYu2w9aIH-sd6D0gy9kEkHo_-_IoKlaHlPhE4e528z6dhCXKW6E=e365-rj-l80-w364"
+    },
+    {
+      "id": 4,
+      "name": "Trainers",
+      "image": "https://media.istockphoto.com/vectors/classic-running-shoes-vector-illustration-vector-id828796200?k=6&m=828796200&s=612x612&w=0&h=dGNtyMvgP6uheWQyuJv3q0PGR1RRs83iU5d03gyFbNQ="
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "category": "Devices",
+      "price": 120000
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "category": "Devices",
+      "price": 240000
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "category": "Fashion",
+      "price": 10000
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "category": "Make-up",
+      "price": 125000
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "category": "Fashion",
+      "price": 120000
+    }
+  ],
+  "cart": [
+    {
+      "id": 3,
+      "name": "Product 3",
+      "category": "Fashion",
+      "price": 10000,
+      "quantity": 6
+    },
+    {
+      "id": 1,
+      "name": "Product 1",
+      "category": "Devices",
+      "price": 120000,
+      "quatity": 1,
+      "quantity": 8
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "category": "Make-up",
+      "price": 125000,
+      "quantity": 6
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "category": "Fashion",
+      "price": 120000,
+      "quantity": 2
+    }
+  ]
+}

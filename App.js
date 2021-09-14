@@ -6,17 +6,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
-import MainTabScreen from "./screens/RootDrawer/MainTabScreen";
-import HistoryScreen from "./screens/RootDrawer/HistoryScreen";
-import GenerateQRScreen from "./screens/RootDrawer/GenerateQRScreen";
-import SearchScreen from "./screens/RootDrawer/SearchScreen";
-import PromotionsScreen from "./screens/RootDrawer/PromotionsScreen";
-import SettingsScreen from "./screens/RootDrawer/SettingsScreen";
-import SupportScreen from "./screens/RootDrawer/SupportScreen";
-
+import MainTabScreen from "./screens/RootTab/MainTabScreen";
 import RootStackScreen from "./screens/RootStack/RootStackScreen";
-
-import { DrawerContent } from "./screens/DrawerContent";
 
 import { AuthContext } from "./components/context";
 
@@ -125,18 +116,8 @@ function App() {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        {loginState.userToken !== null ? (
-          <Drawer.Navigator
-            drawerContent={(props) => <DrawerContent {...props} />}
-          >
-            <Drawer.Screen name="MainTab" component={MainTabScreen} />
-            <Drawer.Screen name="Search" component={SearchScreen} />
-            <Drawer.Screen name="GenerateQR" component={GenerateQRScreen} />
-            <Drawer.Screen name="History" component={HistoryScreen} />
-            <Drawer.Screen name="Promotions" component={PromotionsScreen} />
-            <Drawer.Screen name="Settings" component={SettingsScreen} />
-            <Drawer.Screen name="Support" component={SupportScreen} />
-          </Drawer.Navigator>
+        {loginState.userToken == null ? (
+          <MainTabScreen />
         ) : (
           <RootStackScreen />
         )}
