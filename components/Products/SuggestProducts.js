@@ -3,11 +3,13 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import ProductListItem from './ProductListItem';
 import axios from 'axios';
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 export default function SuggestProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/products')
+    axios.get(`${currentLocation}/products`)
       .then(res => {
         const products = res.data;
         setProducts(products);

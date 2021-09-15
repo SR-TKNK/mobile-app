@@ -1,6 +1,5 @@
 import * as React from "react";
 import { View, ActivityIndicator, Alert } from "react-native";
-
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -114,7 +113,9 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={authContext}>
+    <AuthContext.Provider
+      value={authContext}
+    >
       <NavigationContainer>
         {loginState.userToken == null ? (
           <MainTabScreen />

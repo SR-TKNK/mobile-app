@@ -31,9 +31,11 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#FFF',
     marginBottom: 4,
-    borderColor: '#000',
+    borderColor: '#ccc',
     marginLeft: 2,
-    marginRight: 2
+    marginRight: 2,
+    elevation: 2,
+    borderWidth: 0.5
   },
   categoryImg: {
     width: 35,

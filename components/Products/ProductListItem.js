@@ -3,18 +3,20 @@ import axios from 'axios';
 import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import ProductImg from '../../assets/product.png'
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 function ProductListItem(props) {
   const { product } = props;
 
   const handleBuy = (product) => {
-    axios.get('http://localhost:3000/api/cart')
+    axios.get(`${currentLocation}/cart`)
       .then(res => {
         const cart = res.data;
         const index = cart.findIndex((element) => element.id == product.id);
         if (index != -1) {
           const quantity = { "quantity": cart[index].quantity + 1 };
           console.log(quantity);
-          axios.patch(`http://localhost:3000/api/cart/${product.id}`, quantity);
+          axios.patch(`${currentLocation}/cart/${product.id}`, quantity);
         } else {
           const newProduct = {
             "id": product.id,
@@ -23,7 +25,7 @@ function ProductListItem(props) {
             "price": product.price,
             "quantity": 1
           }
-          axios.post("http://localhost:3000/api/cart", newProduct);
+          axios.post(`${currentLocation}/cart`, newProduct);
         }
       })
       .catch(error => console.log(error));
@@ -58,8 +60,8 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   productImg: {
-    width: 'auto',
-    height: 80
+    height: 70,
+    width: 'auto'
   },
   productTitle: {
     fontSize: 16,

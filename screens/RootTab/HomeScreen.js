@@ -31,7 +31,9 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    backgroundColor: '#fff',
+    flex: 1
   },
   title: {
     color: "#ff8080",

@@ -5,6 +5,8 @@ import CartListItem from '../../components/CartListItem';
 
 var screenHeight = Dimensions.get('window').height;
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 function Cart() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
@@ -18,7 +20,7 @@ function Cart() {
   };
 
   function fetchData() {
-    axios.get('http://localhost:3000/api/cart')
+    axios.get(`${currentLocation}/cart`)
       .then(res => {
         const cart = res.data;
         setCart(cart);
@@ -45,8 +47,8 @@ function Cart() {
       </View>
       <View style={styles.footer}>
         <View style={styles.row}>
-          <Text style={styles.title}>Total: {total}</Text>
-          <Button title="Order" />
+          <Text style={styles.title}>Tổng: {total}</Text>
+          <Button title="Đặt hàng" />
         </View>
       </View>
     </View>
@@ -57,7 +59,8 @@ export default Cart;
 
 const styles = StyleSheet.create({
   container: {
-    height: screenHeight - 113,
+    flex: 1,
+    backgroundColor: '#fff',
     paddingHorizontal: 16,
     paddingTop: 16
   },
@@ -67,19 +70,21 @@ const styles = StyleSheet.create({
     color: '#ff8080'
   },
   body: {
-    height: screenHeight - 196
+    height: screenHeight - 106
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#fff',
-    padding: 16,
+    padding: 8,
   },
   footer: {
     position: 'absolute',
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
+    borderTopWidth: 0.5,
+    borderTopColor: '#ccc'
   }
 });

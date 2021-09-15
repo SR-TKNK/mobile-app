@@ -4,11 +4,13 @@ import CategoryListItem from './CategoryListItem';
 import axios from 'axios';
 import { View } from 'react-native-animatable';
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 export default function Categories({ navigation }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/categories')
+    axios.get(`${currentLocation}/categories`)
       .then(res => {
         console.log(res.data);
         const categories = res.data;
@@ -39,8 +41,6 @@ export default function Categories({ navigation }) {
       }
       keyExtractor={item => `${item.id}`}
       contentContainerStyle={styles.container}
-      initialNumToRender={1}
-      maxToRenderPerBatch={1}
     />
   );
 }

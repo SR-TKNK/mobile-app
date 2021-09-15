@@ -15,8 +15,10 @@ function AccountScreen() {
       <TouchableOpacity style={styles.content}>
         <Text style={styles.title}>Hỗ trợ</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.content}>
-        <Text style={styles.title}>Cài đặt</Text>
+      <TouchableOpacity >
+        <View style={styles.content}>
+          <Text style={styles.title}>Cài đặt</Text>
+        </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.content}>
         <Text style={styles.title}>Đăng xuất</Text>
@@ -31,16 +33,15 @@ const boxsize = 80;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     flex: 1
   },
   header: {
-    paddingTop: 50,
+    paddingTop: 60,
     paddingBottom: 20,
     backgroundColor: '#ffb3b3',
     flexDirection: 'row',
-    alignContent: 'center',
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    alignItems: 'center',
   },
   image: {
     width: boxsize,
@@ -58,9 +59,10 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'stretch',
     borderBottomColor: '#ccc',
-    borderBottomWidth: 0.1,
+    borderBottomWidth: 0.5,
     paddingHorizontal: 20,
-    paddingVertical: 16
+    paddingVertical: 16,
+    backgroundColor: '#fff'
   },
   title: {
     fontSize: 20

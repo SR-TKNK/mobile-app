@@ -78,6 +78,8 @@ const MessagesStackScreen = ({ navigation }) => {
   );
 };
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 const MainTabScreen = () => {
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
@@ -91,7 +93,7 @@ const MainTabScreen = () => {
   };
 
   function fetchData() {
-    axios.get('http://localhost:3000/api/cart')
+    axios.get(`${currentLocation}/cart`)
       .then(res => {
         const cart = res.data;
         setCart(cart);
@@ -102,7 +104,7 @@ const MainTabScreen = () => {
 
   React.useEffect(() => {
     fetchData();
-  });
+  }, [total]);
 
   return (
     <Tab.Navigator
@@ -117,7 +119,7 @@ const MainTabScreen = () => {
           tabBarColor: "#ff9999",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
+          )
         }}
       />
       <Tab.Screen
@@ -136,12 +138,11 @@ const MainTabScreen = () => {
         component={CartStackScreen}
         options={{
           tabBarBadge: total,
-          tabBarBadgeStyle: { paddingHorizontal: 2, fontSize: 12 },
           tabBarLabel: "Giỏ hàng",
           tabBarColor: "#99ff99",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cart" color={color} size={26} />
-          ),
+          )
         }}
       />
       <Tab.Screen

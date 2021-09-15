@@ -4,21 +4,23 @@ import { Image, Text, View, StyleSheet, Alert } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductImg from '../assets/product.png'
 
+const currentLocation = "http://192.168.1.103:3000/api";
+
 function CartListItem(props) {
   const { product } = props;
 
   const handlePlus = (product) => {
     const quantity = { "quantity": product.quantity + 1 };
-    axios.patch(`http://localhost:3000/api/cart/${product.id}`, quantity);
+    axios.patch(`${currentLocation}/cart/${product.id}`, quantity);
   }
 
   const handleMinus = (product) => {
     const quantity = { "quantity": product.quantity - 1 };
     if (quantity.quantity == 0) {
-      axios.delete(`http://localhost:3000/api/cart/${product.id}`);
+      axios.delete(`${currentLocation}/cart/${product.id}`);
     }
     else {
-      axios.patch(`http://localhost:3000/api/cart/${product.id}`, quantity);
+      axios.patch(`${currentLocation}/cart/${product.id}`, quantity);
     }
   }
 
@@ -54,7 +56,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    elevation: 2,
+    borderColor: '#ccc',
+    borderWidth: 0.5
   },
   img: {
     width: boxSize,
@@ -83,7 +88,7 @@ const styles = StyleSheet.create({
   },
   quantity: {
     fontSize: 20,
-    fontWeight: 700,
+    fontWeight: '700',
     marginHorizontal: 4
   },
   mrAuto: {
