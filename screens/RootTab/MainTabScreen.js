@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StackActions } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import * as React from "react";
 import axios from "axios";
@@ -10,6 +11,7 @@ import CartScreen from "./CartScreen";
 import AccountScreen from "./AccountScreen";
 import OrderScreen from "./OrderScreen";
 import Header from "../../components/Header";
+import OrderDetails from "../OrderDetails";
 
 const HomeStack = createNativeStackNavigator();
 const MessagesStack = createNativeStackNavigator();
@@ -61,6 +63,11 @@ const OrderStackScreen = ({ navigation }) => {
         name="Order"
         component={OrderScreen}
         options={{ header: () => <Header name="Đơn hàng" /> }}
+      />
+      <OrderStack.Screen
+        name="OrderDetails"
+        component={OrderDetails}
+        options={{ header: () => <Header name="Thông tin đơn hàng" /> }}
       />
     </OrderStack.Navigator>
   );
@@ -148,6 +155,7 @@ const MainTabScreen = () => {
       <Tab.Screen
         name="Order"
         component={OrderStackScreen}
+        onPress={() => navigation.dispatch(StackActions.popToTop())}
         options={{
           tabBarLabel: "Đơn hàng",
           tabBarColor: "#99ccff",

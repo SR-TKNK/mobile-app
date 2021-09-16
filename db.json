@@ -81,7 +81,75 @@
       "name": "Product 5",
       "category": "Fashion",
       "price": 120000,
-      "quantity": 2
+      "quantity": 3
+    }
+  ],
+  "orders": [
+    {
+      "id": "1111",
+      "products": [
+        {
+          "id": 1,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 1
+        }
+      ],
+      "status": "Đang giao"
+    },
+    {
+      "id": "1112",
+      "products": [
+        {
+          "id": 1,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 2
+        }
+      ],
+      "status": "Chờ giao hàng"
+    },
+    {
+      "id": "1113",
+      "products": [
+        {
+          "id": 1,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 1
+        }
+      ],
+      "status": "Đã giao hàng"
+    },
+    {
+      "id": "1114",
+      "products": [
+        {
+          "id": 1,
+          "type": "type 1",
+          "size": "size 1",
+          "price": "10000",
+          "quantity": 1
+        }
+      ],
+      "status": "Đơn đã hủy"
     }
   ]
 }
