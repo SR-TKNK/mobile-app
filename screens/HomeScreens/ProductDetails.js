@@ -2,17 +2,40 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ProductImg from '../../assets/product.png'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import axios from 'axios';
 
 const currentLocation = "http://192.168.1.103:3000/api";
 
 function ProductDetails({ route }) {
   const { product } = route.params;
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   console.log(product.name, route.params.name);
   console.log(product, route.params);
 
   function handleChange(q) {
     setQuantity(q);
+  }
+
+  const handleBuy = (product, quantity) => {
+    axios.get(`${currentLocation}/cart`)
+      .then(res => {
+        const cart = res.data;
+        const index = cart.findIndex((element) => element.id == product.id);
+        if (index != -1) {
+          const newQuantity = { "quantity": cart[index].quantity + quantity };
+          axios.patch(`${currentLocation}/cart/${product.id}`, newQuantity);
+        } else {
+          const newProduct = {
+            "id": product.id,
+            "name": product.name,
+            "category": product.category,
+            "price": product.price,
+            "quantity": quantity
+          }
+          axios.post(`${currentLocation}/cart`, newProduct);
+        }
+      })
+      .catch(error => console.log(error));
   }
 
   return (
@@ -53,7 +76,7 @@ function ProductDetails({ route }) {
         </View>
       </View>
       <View style={styles.footer}>
-        <Button color="red" title="Thêm vào giỏ hàng" />
+        <Button onPress={() => handleBuy(product, quantity)} color="#ff9999" title="Thêm vào giỏ hàng" />
       </View>
     </View>
   );

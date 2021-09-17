@@ -67,14 +67,14 @@
       "category": "Devices",
       "price": 120000,
       "quatity": 1,
-      "quantity": 5
+      "quantity": 14
     },
     {
       "id": 4,
       "name": "Product 4",
       "category": "Make-up",
       "price": 125000,
-      "quantity": 6
+      "quantity": 2
     },
     {
       "id": 5,
@@ -82,6 +82,13 @@
       "category": "Fashion",
       "price": 120000,
       "quantity": 3
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "category": "Devices",
+      "price": 240000,
+      "quantity": 5
     }
   ],
   "orders": [

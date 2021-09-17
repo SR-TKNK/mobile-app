@@ -39,7 +39,7 @@ const MainTabScreen = () => {
 
   React.useEffect(() => {
     fetchData();
-  }, [total]);
+  }, [cart]);
 
   return (
     <Tab.Navigator
