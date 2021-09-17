@@ -3,12 +3,13 @@ import { FlatList, StyleSheet } from 'react-native';
 import CategoryListItem from './CategoryListItem';
 import axios from 'axios';
 import { View } from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
 
 const currentLocation = "http://192.168.1.103:3000/api";
 
-export default function Categories({ navigation }) {
+export default function Categories() {
   const [categories, setCategories] = useState([]);
-
+  const navigation = useNavigation();
   useEffect(() => {
     axios.get(`${currentLocation}/categories`)
       .then(res => {

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-
 import Banner from "../../components/BannerList";
 import DiscountProducts from "../../components/Products/DiscountProducts";
 import Categories from "../../components/Categories/Categories";

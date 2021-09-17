@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text } from 'react-native';
-import ViewProductOrder from '../components/Products/ViewProductOrder';
+import ViewProductOrder from '../../components/Products/ViewProductOrder';
 
 const currentLocation = "http://192.168.1.103:3000/api";
 

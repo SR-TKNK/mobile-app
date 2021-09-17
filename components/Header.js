@@ -6,6 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 function Header(props) {
   const { name } = props;
+
   return (
     <View style={styles.container}>
       {name == "Trang chủ" ? (

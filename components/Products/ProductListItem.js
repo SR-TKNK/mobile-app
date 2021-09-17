@@ -6,7 +6,7 @@ import ProductImg from '../../assets/product.png'
 const currentLocation = "http://192.168.1.103:3000/api";
 
 function ProductListItem(props) {
-  const { product } = props;
+  const { product, onPress } = props;
 
   const handleBuy = (product) => {
     axios.get(`${currentLocation}/cart`)
@@ -33,19 +33,23 @@ function ProductListItem(props) {
   }
 
   return (
-    <View style={styles.container}>
-      <Image style={styles.productImg} source={ProductImg} />
-      <Text style={styles.productTitle}>{product.name}</Text>
-      <Text style={styles.subText}>{product.category}</Text>
-      <View style={styles.row}>
-        <Text style={styles.subText}>{product.price}</Text>
-        <TouchableOpacity
-          onPress={() => handleBuy(product)}
-        >
-          <Text style={styles.price}>Mua +</Text>
-        </TouchableOpacity>
+    <TouchableOpacity
+      onPress={onPress}
+    >
+      <View style={styles.container}>
+        <Image style={styles.productImg} source={ProductImg} />
+        <Text style={styles.productTitle}>{product.name}</Text>
+        <Text style={styles.subText}>{product.category}</Text>
+        <View style={styles.row}>
+          <Text style={styles.subText}>{product.price}</Text>
+          <TouchableOpacity
+            onPress={() => handleBuy(product)}
+          >
+            <Text style={styles.price}>Mua +</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -60,8 +64,10 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   productImg: {
-    height: 70,
-    width: 'auto'
+    height: 75,
+    width: 75,
+    marginLeft: 'auto',
+    marginRight: 'auto'
   },
   productTitle: {
     fontSize: 16,

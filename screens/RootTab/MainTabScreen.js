@@ -5,85 +5,13 @@ import * as React from "react";
 import axios from "axios";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import HomeScreen from "./HomeScreen";
-import MessagesScreen from "./MessagesScreen";
-import CartScreen from "./CartScreen";
-import AccountScreen from "./AccountScreen";
-import OrderScreen from "./OrderScreen";
-import Header from "../../components/Header";
-import OrderDetails from "../OrderDetails";
+import OrderStackScreen from "../MainStack/OrderStackScreen";
+import HomeStackScreen from "../MainStack/HomeStackScreen";
+import CartStackScreen from "../MainStack/CartStackScreen";
+import MessagesStackScreen from "../MainStack/MessagesStackScreen";
+import AccountStackScreen from "../MainStack/AccountStackScreen";
 
-const HomeStack = createNativeStackNavigator();
-const MessagesStack = createNativeStackNavigator();
-const CartStack = createNativeStackNavigator();
-const AccountStack = createNativeStackNavigator();
-const OrderStack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
-
-const HomeStackScreen = ({ navigation }) => {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ header: () => <Header name="Trang chủ" /> }}
-      />
-    </HomeStack.Navigator>
-  );
-};
-
-const CartStackScreen = ({ navigation }) => {
-  return (
-    <CartStack.Navigator>
-      <CartStack.Screen
-        name="Cart"
-        component={CartScreen}
-        options={{ header: () => <Header name="Giỏ hàng" /> }}
-      />
-    </CartStack.Navigator>
-  );
-};
-
-const AccountStackScreen = ({ navigation }) => {
-  return (
-    <AccountStack.Navigator>
-      <AccountStack.Screen
-        name="Account"
-        component={AccountScreen}
-        options={{ headerShown: false }}
-      />
-    </AccountStack.Navigator>
-  );
-};
-
-const OrderStackScreen = ({ navigation }) => {
-  return (
-    <OrderStack.Navigator>
-      <OrderStack.Screen
-        name="Order"
-        component={OrderScreen}
-        options={{ header: () => <Header name="Đơn hàng" /> }}
-      />
-      <OrderStack.Screen
-        name="OrderDetails"
-        component={OrderDetails}
-        options={{ header: () => <Header name="Thông tin đơn hàng" /> }}
-      />
-    </OrderStack.Navigator>
-  );
-};
-
-const MessagesStackScreen = ({ navigation }) => {
-  return (
-    <MessagesStack.Navigator>
-      <MessagesStack.Screen
-        options={{ header: () => <Header name="Thông báo" /> }}
-        name="Messages"
-        component={MessagesScreen}
-      />
-    </MessagesStack.Navigator>
-  );
-};
 
 const currentLocation = "http://192.168.1.103:3000/api";
 
@@ -130,7 +58,7 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Notifications"
+        name="Messages"
         component={MessagesStackScreen}
         options={{
           tabBarLabel: "Thông báo",
