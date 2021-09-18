@@ -4,41 +4,14 @@ import { View, Text, TouchableOpacity, FlatList, ScrollView, Linking, StyleSheet
 import ViewProductOrder from "../../components/Products/ViewProductOrder";
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = "http://192.168.1.103:3000/api";
-
 export default function Payment({ route }) {
-  const { cart } = route.params;
+  const { cart, total } = route.params;
   const [select, setSelect] = useState("paypal");
-  const [order, setOrder] = useState();
   const navigation = useNavigation();
-
+  console.log(total);
   function handleChoose(method) {
     setSelect(method);
   }
-
-  function handleClick(method) {
-    // if (method == "paypal") {
-    //   axios.get(`${currentLocation}/orders`)
-    //     .then(res => {
-    //       const id = res.data.lenght;
-    //       const order = {
-    //         id: id,
-    //         product: cart,
-    //         status: "Chờ thanh toán"
-    //       }
-    //       setOrder(order);
-    //     })
-    //     .catch(error => console.log(error));
-    //   axios.delete(`${currentLocation}/cart`);
-    //   axios.put(`${currentLocation}/orders`, order);
-    //   Linking.openURL(`http://192.168.1.103:5000?id=${id}`);
-    // }
-    // if (method == "qr" || method == "cash") {
-
-    // }
-
-  };
-
 
   return (
     <View style={styles.container}>
@@ -74,10 +47,10 @@ export default function Payment({ route }) {
 
           <TouchableOpacity
             activeOpacity={1}
-            onPress={() => handleChoose("qr")}
+            onPress={() => handleChoose("wallet")}
           >
-            <View style={[styles.button, select !== "qr" ? styles.default : styles.select]}>
-              <Text>Thanh toán bằng mã QR</Text>
+            <View style={[styles.button, select !== "wallet" ? styles.default : styles.select]}>
+              <Text>Thanh toán bằng ví của tôi</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -88,6 +61,7 @@ export default function Payment({ route }) {
           onPress={() => {
             navigation.navigate('FromInfor', {
               cart: cart,
+              total: total,
               method: select
             });
           }}

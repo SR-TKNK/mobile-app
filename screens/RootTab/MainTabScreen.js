@@ -48,7 +48,7 @@ const MainTabScreen = () => {
       barStyle={{ backgroundColor: "#ff9999" }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeStackScreen}
         options={{
           tabBarLabel: "Trang chủ",
@@ -58,7 +58,7 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Messages"
+        name="MessagesStack"
         component={MessagesStackScreen}
         options={{
           tabBarLabel: "Thông báo",
@@ -68,7 +68,7 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Cart"
+        name="CartStack"
         component={CartStackScreen}
         options={{
           tabBarBadge: total,
@@ -79,7 +79,7 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Order"
+        name="OrderStack"
         component={OrderStackScreen}
         onPress={() => navigation.dispatch(StackActions.popToTop())}
         options={{
@@ -90,7 +90,7 @@ const MainTabScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Account"
+        name="AccountStack"
         component={AccountStackScreen}
         options={{
           tabBarLabel: "Tài khoản",

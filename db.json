@@ -1,10 +1,11 @@
 {
   "users": [
     {
+      "id": 1,
       "username": "ndt123",
       "password": "",
       "name": "Ngô Đức Thịnh",
-      "amount": 500000
+      "amount": 380000
     }
   ],
   "categories": [
@@ -87,7 +88,8 @@
         "number": "123456789",
         "address": "hcm"
       },
-      "status": "Đã giao hàng"
+      "status": "Đã giao hàng",
+      "total": 245000
     },
     {
       "id": 2,
@@ -106,7 +108,8 @@
         "number": "123456789",
         "address": "227 Nguyễn Văn Cừ, Quận 5, TP HCM"
       },
-      "status": "Đang giao"
+      "status": "Đang giao",
+      "total": 120000
     },
     {
       "id": 3,
@@ -132,7 +135,28 @@
         "number": "123456789",
         "address": "Cần Thơ"
       },
-      "status": "Chờ giao hàng"
+      "status": "Chờ giao hàng",
+      "total": 370000
+    },
+    {
+      "id": 4,
+      "products": [
+        {
+          "id": 3,
+          "name": "Product 3",
+          "category": "Fashion",
+          "price": 10000,
+          "quantity": 1
+        }
+      ],
+      "status": "Chờ giao hàng",
+      "user": {
+        "username": "ndt123",
+        "name": "Test",
+        "number": "0123456789",
+        "address": "Hồ Chí Minh"
+      },
+      "total": 10000
     }
   ]
 }

@@ -9,7 +9,9 @@ const ip = "http://192.168.1.103";
 const currentLocation = `${ip}:3000/api`;
 
 export default function Payment({ route }) {
-  const { cart, method } = route.params;
+  const userId = 1;
+  const { cart, total, method } = route.params;
+  console.log(total);
   console.log(cart);
   const [name, onChangeName] = React.useState(null);
   const [number, onChangeNumber] = React.useState(null);
@@ -33,7 +35,8 @@ export default function Payment({ route }) {
             name: name,
             number: number,
             address: address
-          }
+          },
+          total: total
         }
         axios.post(`${currentLocation}/orders`, order);
       })
@@ -49,19 +52,25 @@ export default function Payment({ route }) {
     } else {
       if (method == "paypal") {
         fetchOrder();
-        Linking.openURL(`${window.location.protocol}//${window.location.hostname}:5000?id=${idOrder}`);
+        Linking.openURL(`${ip}:5000?id=${idOrder}`);
       }
       if (method == "cash") {
         fetchOrder();
       }
-      if (method == "qr") {
-        fetchOrder();
-        navigation.navigate('QrCode', {
-          id: idOrder,
-          name: name,
-          number: number,
-          address: address
-        });
+      if (method == "wallet") {
+        axios.get(`${currentLocation}/users/${userId}`)
+          .then(res => {
+            if (res.data.amount - total < 0) {
+              Alert.alert("Thanh toán không thành công! Số dư trong tài khoảng không đủ");
+            }
+            else {
+              const amount = { "amount": res.data.amount - total };
+              axios.patch(`${currentLocation}/users/${userId}`, amount);
+              fetchOrder();
+              Alert.alert("Thanh toán thành công! Số dư trong tài khoảng còn " + amount.amount);
+              navigation.navigate('Cart')
+            }
+          });
       }
     }
   };
