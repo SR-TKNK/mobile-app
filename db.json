@@ -81,6 +81,12 @@
           "quantity": 1
         }
       ],
+      "user": {
+        "username": "ndt123",
+        "name": "Ngô Đức Thịnh",
+        "number": "123456789",
+        "address": "hcm"
+      },
       "status": "Đã giao hàng"
     },
     {
@@ -94,6 +100,12 @@
           "quantity": 1
         }
       ],
+      "user": {
+        "username": "ndt123",
+        "name": "Ngô Đức Thịnh",
+        "number": "123456789",
+        "address": "227 Nguyễn Văn Cừ, Quận 5, TP HCM"
+      },
       "status": "Đang giao"
     },
     {
@@ -114,6 +126,12 @@
           "quantity": 2
         }
       ],
+      "user": {
+        "username": "ndt123",
+        "name": "Ngô Đức Thịnh",
+        "number": "123456789",
+        "address": "Cần Thơ"
+      },
       "status": "Chờ giao hàng"
     }
   ]
