@@ -1,0 +1,52 @@
+{
+  "ast": null,
+  "code": "import _slicedToArray from \"@babel/runtime/helpers/slicedToArray\";\nvar _jsxFileName = \"C:\\\\Users\\\\PC\\\\Documents\\\\hocnhieuchut\\\\reactnative\\\\mobile-app\\\\components\\\\Products\\\\SuggestProducts.js\";\nimport React, { useEffect, useState } from 'react';\nimport FlatList from \"react-native-web/dist/exports/FlatList\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport View from \"react-native-web/dist/exports/View\";\nimport ProductListItem from \"./ProductListItem\";\nimport { useNavigation } from '@react-navigation/native';\nimport axios from 'axios';\nvar currentLocation = window.location.hostname + \":3000/api\";\nexport default function SuggestProducts() {\n  var _this = this;\n\n  var _useState = useState([]),\n      _useState2 = _slicedToArray(_useState, 2),\n      products = _useState2[0],\n      setProducts = _useState2[1];\n\n  var navigation = useNavigation();\n  console.log(currentLocation + \"/products\");\n  useEffect(function () {\n    axios.get(currentLocation + \"/products\").then(function (res) {\n      var products = res.data;\n      setProducts(products);\n    }).catch(function (error) {\n      return console.log(error);\n    });\n  }, []);\n  return React.createElement(FlatList, {\n    data: products,\n    numColumns: 3,\n    renderItem: function renderItem(_ref) {\n      var item = _ref.item;\n      return React.createElement(View, {\n        style: styles.wapper,\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 27,\n          columnNumber: 9\n        }\n      }, React.createElement(ProductListItem, {\n        product: item,\n        onPress: function onPress() {\n          navigation.navigate('ProductDetails', {\n            product: item,\n            name: item.name\n          });\n        },\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 28,\n          columnNumber: 11\n        }\n      }));\n    },\n    keyExtractor: function keyExtractor(item) {\n      return \"\" + item.id;\n    },\n    contentContainerStyle: styles.container,\n    __self: this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 23,\n      columnNumber: 5\n    }\n  });\n}\nvar styles = StyleSheet.create({\n  container: {\n    paddingHorizontal: -4\n  },\n  wapper: {\n    paddingHorizontal: 4,\n    width: '33.33333%'\n  }\n});",
+  "map": {
+    "version": 3,
+    "sources": [
+      "C:/Users/PC/Documents/hocnhieuchut/reactnative/mobile-app/components/Products/SuggestProducts.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "useState",
+      "ProductListItem",
+      "useNavigation",
+      "axios",
+      "currentLocation",
+      "window",
+      "location",
+      "hostname",
+      "SuggestProducts",
+      "products",
+      "setProducts",
+      "navigation",
+      "console",
+      "log",
+      "get",
+      "then",
+      "res",
+      "data",
+      "catch",
+      "error",
+      "item",
+      "styles",
+      "wapper",
+      "navigate",
+      "product",
+      "name",
+      "id",
+      "container",
+      "StyleSheet",
+      "create",
+      "paddingHorizontal",
+      "width"
+    ],
+    "mappings": ";;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,EAA2BC,QAA3B,QAA2C,OAA3C;;;;AAEA,OAAOC,eAAP;AACA,SAASC,aAAT,QAA8B,0BAA9B;AACA,OAAOC,KAAP,MAAkB,OAAlB;AAEA,IAAMC,eAAe,GAAMC,MAAM,CAACC,QAAP,CAAgBC,QAAtB,cAArB;AAEA,eAAe,SAASC,eAAT,GAA2B;AAAA;;AACxC,kBAAgCR,QAAQ,CAAC,EAAD,CAAxC;AAAA;AAAA,MAAOS,QAAP;AAAA,MAAiBC,WAAjB;;AACA,MAAMC,UAAU,GAAGT,aAAa,EAAhC;AACAU,EAAAA,OAAO,CAACC,GAAR,CAAeT,eAAf;AACAL,EAAAA,SAAS,CAAC,YAAM;AACdI,IAAAA,KAAK,CAACW,GAAN,CAAaV,eAAb,gBACGW,IADH,CACQ,UAAAC,GAAG,EAAI;AACX,UAAMP,QAAQ,GAAGO,GAAG,CAACC,IAArB;AACAP,MAAAA,WAAW,CAACD,QAAD,CAAX;AACD,KAJH,EAKGS,KALH,CAKS,UAAAC,KAAK;AAAA,aAAIP,OAAO,CAACC,GAAR,CAAYM,KAAZ,CAAJ;AAAA,KALd;AAMD,GAPQ,EAON,EAPM,CAAT;AASA,SACE,oBAAC,QAAD;AACE,IAAA,IAAI,EAAEV,QADR;AAEE,IAAA,UAAU,EAAE,CAFd;AAGE,IAAA,UAAU,EAAE;AAAA,UAAGW,IAAH,QAAGA,IAAH;AAAA,aACV,oBAAC,IAAD;AAAM,QAAA,KAAK,EAAEC,MAAM,CAACC,MAApB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,SACE,oBAAC,eAAD;AACE,QAAA,OAAO,EAAEF,IADX;AAEE,QAAA,OAAO,EAAE,mBAAM;AACbT,UAAAA,UAAU,CAACY,QAAX,CAAoB,gBAApB,EAAsC;AACpCC,YAAAA,OAAO,EAAEJ,IAD2B;AAEpCK,YAAAA,IAAI,EAAEL,IAAI,CAACK;AAFyB,WAAtC;AAID,SAPH;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,QADF,CADU;AAAA,KAHd;AAgBE,IAAA,YAAY,EAAE,sBAAAL,IAAI;AAAA,kBAAOA,IAAI,CAACM,EAAZ;AAAA,KAhBpB;AAiBE,IAAA,qBAAqB,EAAEL,MAAM,CAACM,SAjBhC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF;AAqBD;AAED,IAAMN,MAAM,GAAGO,UAAU,CAACC,MAAX,CAAkB;AAC/BF,EAAAA,SAAS,EAAE;AACTG,IAAAA,iBAAiB,EAAE,CAAC;AADX,GADoB;AAI/BR,EAAAA,MAAM,EAAE;AACNQ,IAAAA,iBAAiB,EAAE,CADb;AAENC,IAAAA,KAAK,EAAE;AAFD;AAJuB,CAAlB,CAAf",
+    "sourcesContent": [
+      "import React, { useEffect, useState } from 'react';\r\nimport { FlatList, StyleSheet, View } from 'react-native';\r\nimport ProductListItem from './ProductListItem';\r\nimport { useNavigation } from '@react-navigation/native';\r\nimport axios from 'axios';\r\n\r\nconst currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;\r\n\r\nexport default function SuggestProducts() {\r\n  const [products, setProducts] = useState([]);\r\n  const navigation = useNavigation();\r\n  console.log(`${currentLocation}/products`);\r\n  useEffect(() => {\r\n    axios.get(`${currentLocation}/products`)\r\n      .then(res => {\r\n        const products = res.data;\r\n        setProducts(products);\r\n      })\r\n      .catch(error => console.log(error));\r\n  }, []);\r\n\r\n  return (\r\n    <FlatList\r\n      data={products}\r\n      numColumns={3}\r\n      renderItem={({ item }) =>\r\n        <View style={styles.wapper}>\r\n          <ProductListItem\r\n            product={item}\r\n            onPress={() => {\r\n              navigation.navigate('ProductDetails', {\r\n                product: item,\r\n                name: item.name\r\n              });\r\n            }}\r\n          />\r\n        </View>\r\n      }\r\n      keyExtractor={item => `${item.id}`}\r\n      contentContainerStyle={styles.container}\r\n    />\r\n  );\r\n}\r\n\r\nconst styles = StyleSheet.create({\r\n  container: {\r\n    paddingHorizontal: -4,\r\n  },\r\n  wapper: {\r\n    paddingHorizontal: 4,\r\n    width: '33.33333%'\r\n  }\r\n});\r\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

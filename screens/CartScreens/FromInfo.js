@@ -6,7 +6,7 @@ import { Alert, Modal, Pressable } from "react-native";
 import QrCode from '../../assets/qr.png'
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = "http://192.168.1.103:3000/api";
+const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
 
 export default function Payment({ route }) {
   const { cart, method } = route.params;
@@ -27,7 +27,13 @@ export default function Payment({ route }) {
         const order = {
           id: id,
           products: cart,
-          status: "Chờ giao hàng"
+          status: "Chờ giao hàng",
+          user: {
+            username: 'ndt123',
+            name: name,
+            number: number,
+            address: address
+          }
         }
         axios.post(`${currentLocation}/orders`, order);
       })
@@ -43,7 +49,7 @@ export default function Payment({ route }) {
     } else {
       if (method == "paypal") {
         fetchOrder();
-        Linking.openURL(`http://192.168.1.103:5000?id=${idOrder}`);
+        Linking.openURL(`${window.location.protocol}//${window.location.hostname}:5000?id=${idOrder}`);
       }
       if (method == "cash") {
         fetchOrder();

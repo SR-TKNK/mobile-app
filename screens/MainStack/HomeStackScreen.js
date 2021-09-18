@@ -4,6 +4,7 @@ import HomeScreen from "../HomeScreens/HomeScreen";
 import CategoryScreen from "../HomeScreens/Category";
 import ProductDetails from "../HomeScreens/ProductDetails";
 import SearchingProducts from "../HomeScreens/SearchingProducts";
+import QrCode from '../CartScreens/QrCode';
 import Header from '../../components/Header';
 
 const HomeStack = createNativeStackNavigator();
@@ -45,6 +46,21 @@ export default function HomeStackScreen() {
             textTransform: 'uppercase'
           }
         })}
+      />
+      <HomeStack.Screen
+        name="QrCode"
+        component={QrCode}
+        options={{
+          title: "Mã thanh toán",
+          headerStyle: {
+            backgroundColor: '#ff9999',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            textTransform: 'uppercase'
+          }
+        }}
       />
       {/* <HomeStack.Screen
         name="SearchingProducts"

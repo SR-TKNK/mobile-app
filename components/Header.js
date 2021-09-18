@@ -3,15 +3,18 @@ import { View, Text, StyleSheet, Alert } from "react-native";
 import Constants from 'expo-constants';
 import { TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from '@react-navigation/native';
 
 function Header(props) {
   const { name } = props;
-
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {name == "Trang chủ" ? (
         <View style={styles.row}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('QrCode')}
+          >
             <MaterialCommunityIcons name="qrcode-scan" color="#ff9999" size={40} />
           </TouchableOpacity>
           <View>
@@ -27,8 +30,9 @@ function Header(props) {
         <View style={styles.bgPink}>
           <Text style={styles.textWhite}>{name}</Text>
         </View>
-      )}
-    </View>
+      )
+      }
+    </View >
 
   );
 }

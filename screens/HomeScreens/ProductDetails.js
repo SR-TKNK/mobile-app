@@ -4,7 +4,7 @@ import ProductImg from '../../assets/product.png'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import axios from 'axios';
 
-const currentLocation = "http://192.168.1.103:3000/api";
+const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
 
 function ProductDetails({ route }) {
   const { product } = route.params;

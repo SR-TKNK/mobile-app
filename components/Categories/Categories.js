@@ -5,7 +5,7 @@ import axios from 'axios';
 import { View } from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = "http://192.168.1.103:3000/api";
+const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -13,7 +13,6 @@ export default function Categories() {
   useEffect(() => {
     axios.get(`${currentLocation}/categories`)
       .then(res => {
-        console.log(res.data);
         const categories = res.data;
         setCategories(categories);
       })

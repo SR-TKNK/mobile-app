@@ -4,7 +4,7 @@ import { FlatList, View, StyleSheet } from 'react-native';
 import OrderListItem from './OrderListItem';
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = "http://192.168.1.103:3000/api";
+const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
 
 function OrdersView(props) {
   const { filter } = props;
