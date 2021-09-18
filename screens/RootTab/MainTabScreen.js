@@ -44,14 +44,13 @@ const MainTabScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      barStyle={{ backgroundColor: "pink" }}
+      barStyle={{ backgroundColor: "#ff9999" }}
     >
       <Tab.Screen
         name="Home"
         component={HomeStackScreen}
         options={{
           tabBarLabel: "Trang chủ",
-          tabBarColor: "#ff9999",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           )
@@ -62,7 +61,6 @@ const MainTabScreen = () => {
         component={MessagesStackScreen}
         options={{
           tabBarLabel: "Thông báo",
-          tabBarColor: "#ffcc99",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
@@ -74,7 +72,6 @@ const MainTabScreen = () => {
         options={{
           tabBarBadge: total,
           tabBarLabel: "Giỏ hàng",
-          tabBarColor: "#99ff99",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cart" color={color} size={26} />
           )
@@ -86,7 +83,6 @@ const MainTabScreen = () => {
         onPress={() => navigation.dispatch(StackActions.popToTop())}
         options={{
           tabBarLabel: "Đơn hàng",
-          tabBarColor: "#99ccff",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="receipt" color={color} size={26} />
           ),
@@ -97,7 +93,6 @@ const MainTabScreen = () => {
         component={AccountStackScreen}
         options={{
           tabBarLabel: "Tài khoản",
-          tabBarColor: "#9999ff",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account-circle" color={color} size={26} />
           ),

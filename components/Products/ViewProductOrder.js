@@ -12,10 +12,10 @@ function ViewProductOrder(props) {
       </View>
       <View style={{ flexDirection: 'column', flex: 1 }}>
         <View style={styles.row}>
-          <Text style={styles.title}>{product.id}</Text>
+          <Text style={styles.title}>{product.name}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={styles.subText}>{product.type}, {product.type}</Text>
+          <Text style={styles.subText}>{product.category}</Text>
           <Text style={[styles.subText, styles.textRight]}>x{product.quantity}</Text>
         </View>
         <View style={styles.row}>

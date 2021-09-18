@@ -1,16 +1,36 @@
-import * as React from "react";
-import { Image, View, Text, Button, TouchableOpacity, StyleSheet } from "react-native";
-import ImgAva from "../../assets/SR.TKNK.png"
+import React, { useState, useEffect, useCallback } from "react";
+import { Image, View, Text, Button, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
+import ImgAva from "../../assets/SR.TKNK.png";
+import axios from "axios";
 
-function AccountScreen() {
+const currentLocation = "http://192.168.1.103:3000/api";
+
+export default function AccountScreen() {
+  const username = "ndt123";
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    axios.get(`${currentLocation}/users?username=${username}`)
+      .then(res => {
+        setIsLoading(true);
+        setUser(res.data[0]);
+        setIsLoading(false);
+      })
+      .catch(error => console.log(error));
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image style={styles.image} source={ImgAva} />
         <View>
-          <Text style={styles.titleName}>Ngô Đức Thịnh</Text>
+          <Text style={styles.titleName}>{user.name}</Text>
           <Button color="#ff8080" title="Cập nhật hồ sơ" />
         </View>
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Ví của tôi: {user.amount} VND</Text>
       </View>
       <TouchableOpacity style={styles.content}>
         <Text style={styles.title}>Hỗ trợ</Text>
@@ -26,8 +46,6 @@ function AccountScreen() {
     </View>
   );
 }
-
-export default AccountScreen;
 
 const boxsize = 80;
 

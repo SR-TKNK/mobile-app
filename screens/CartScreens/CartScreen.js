@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FlatList, Text, View, Button, StyleSheet, Dimensions } from 'react-native';
 import CartListItem from '../../components/CartListItem';
+import { useNavigation } from '@react-navigation/native';
 
 var screenHeight = Dimensions.get('window').height;
 
@@ -10,6 +11,7 @@ const currentLocation = "http://192.168.1.103:3000/api";
 function Cart() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const navigation = useNavigation();
 
   function getTotal(cart) {
     let sum = 0;
@@ -28,6 +30,8 @@ function Cart() {
       })
       .catch(error => console.log(error));
   }
+
+  // handleOrder()
 
   useEffect(() => {
     fetchData();
@@ -48,7 +52,14 @@ function Cart() {
       <View style={styles.footer}>
         <View style={styles.row}>
           <Text style={styles.title}>Tổng: {total}</Text>
-          <Button title="Đặt hàng" />
+          <Button
+            onPress={() => {
+              navigation.navigate('Payment', {
+                cart: cart
+              });
+            }}
+            title="Đặt hàng"
+          />
         </View>
       </View>
     </View>
