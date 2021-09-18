@@ -6,7 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 
 var screenHeight = Dimensions.get('window').height;
 
-const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+const ip = "http://192.168.1.103";
+const currentLocation = `${ip}:3000/api`;
 
 function Cart() {
   const [cart, setCart] = useState([]);

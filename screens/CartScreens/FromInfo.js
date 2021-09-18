@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { View, Text, TouchableOpacity, TextInput, Linking, StyleSheet, Button, Image } from "react-native";
-import ViewProductOrder from "../../components/Products/ViewProductOrder";
 import { Alert, Modal, Pressable } from "react-native";
 import QrCode from '../../assets/qr.png'
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+const ip = "http://192.168.1.103";
+const currentLocation = `${ip}:3000/api`;
 
 export default function Payment({ route }) {
   const { cart, method } = route.params;

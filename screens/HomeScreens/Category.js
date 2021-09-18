@@ -4,7 +4,8 @@ import ProductListItem from '../../components/Products/ProductListItem';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
-const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+const ip = "http://192.168.1.103";
+const currentLocation = `${ip}:3000/api`;
 
 export default function Category({ route }) {
   const { name, id } = route.params;

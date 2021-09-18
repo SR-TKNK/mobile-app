@@ -4,7 +4,8 @@ import { Image, Text, View, StyleSheet, Alert } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductImg from '../assets/product.png'
 
-const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+const ip = "http://192.168.1.103";
+const currentLocation = `${ip}:3000/api`;
 
 function CartListItem(props) {
   const { product } = props;

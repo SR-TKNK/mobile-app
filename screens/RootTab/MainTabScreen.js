@@ -13,7 +13,8 @@ import AccountStackScreen from "../MainStack/AccountStackScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
-const currentLocation = `${window.location.protocol}//${window.location.hostname}:3000/api`;
+const ip = "http://192.168.1.103";
+const currentLocation = `${ip}:3000/api`;
 
 const MainTabScreen = () => {
   const [cart, setCart] = React.useState([]);
